@@ -31,7 +31,7 @@ build/
 .vscode/
 
 ### Miscellaneous File Types ###
-.csv
+*.csv
 
 ### macOS ###
 .DS_Store
