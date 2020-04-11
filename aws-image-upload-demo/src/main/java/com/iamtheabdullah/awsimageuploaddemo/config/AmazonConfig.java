@@ -12,7 +12,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Configuration
 public class AmazonConfig {
@@ -42,13 +44,14 @@ public class AmazonConfig {
         final String CSV_FILENAME = "./rootkey.csv";
 
         String readLine = "";
-        List<String[]> keys = new ArrayList();
+        Map<String, String> keys = new HashMap();
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(CSV_FILENAME));
 
             while ((readLine = reader.readLine()) != null) {
-                keys.add(readLine.split("="));
+                String[] keyValueString = readLine.split("=");
+                keys.put(keyValueString[0], keyValueString[1]);
             }
 
             reader.close();
@@ -59,9 +62,9 @@ public class AmazonConfig {
 
         switch (keyType) {
             case ACCESS:
-                return keys.get(0)[1];
+                return keys.get("AWSAccessKeyId");
             case SECRET:
-                return keys.get(1)[1];
+                return keys.get("AWSSecretKey");
             default:
                 return "";
         }
