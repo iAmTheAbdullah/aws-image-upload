@@ -19,11 +19,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -35,6 +37,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- Amazon AWS https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.11.762</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -45,5 +54,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
