@@ -1,4 +1,4 @@
-package com.iamtheabdullah.awsimageuploaddemo.profile;
+package com.iamtheabdullah.awsimageupload.profile;
 
 import java.util.Objects;
 import java.util.Optional;

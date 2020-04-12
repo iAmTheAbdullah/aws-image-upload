@@ -1,6 +1,6 @@
-package com.iamtheabdullah.awsimageuploaddemo.datastore;
+package com.iamtheabdullah.awsimageupload.datastore;
 
-import com.iamtheabdullah.awsimageuploaddemo.profile.UserProfile;
+import com.iamtheabdullah.awsimageupload.profile.UserProfile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

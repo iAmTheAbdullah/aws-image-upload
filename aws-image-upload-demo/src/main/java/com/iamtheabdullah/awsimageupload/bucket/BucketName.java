@@ -1,4 +1,4 @@
-package com.iamtheabdullah.awsimageuploaddemo.bucket;
+package com.iamtheabdullah.awsimageupload.bucket;
 
 public enum BucketName {
     PROFILE_IMAGE("iamtheabdullah-image-upload");
