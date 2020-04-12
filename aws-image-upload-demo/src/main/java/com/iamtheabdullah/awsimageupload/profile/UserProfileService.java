@@ -1,6 +1,7 @@
 package com.iamtheabdullah.awsimageupload.profile;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,10 +10,10 @@ import java.util.UUID;
 
 @Service
 public class UserProfileService {
-    private final UserProfileRepository userProfileRepository;
+    private final UserProfileRepositoryInterface userProfileRepository;
 
     @Autowired
-    public UserProfileService(UserProfileRepository userProfileRepository) {
+    public UserProfileService(@Qualifier("fake") UserProfileRepositoryInterface userProfileRepository) {
         this.userProfileRepository = userProfileRepository;
     }
 
@@ -21,7 +22,7 @@ public class UserProfileService {
     }
 
     public UserProfile getUserProfile(UUID userProfileId) {
-        return userProfileRepository.getUserByUserProfileId(userProfileId);
+        return userProfileRepository.getUserById(userProfileId);
     }
 
     public void uploadUserProfileImage(UUID userProfileId, MultipartFile file) {
