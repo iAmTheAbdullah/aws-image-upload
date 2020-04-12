@@ -5,17 +5,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class UserProfileRepository {
-    private final FakeUserProfileDataStore fakeUserProfileDataStore;
+    private final FakeUserProfileDataStore userProfileDataStore;
 
     @Autowired
-    public UserProfileRepository(FakeUserProfileDataStore fakeUserProfileDataStore) {
-        this.fakeUserProfileDataStore = fakeUserProfileDataStore;
+    public UserProfileRepository(FakeUserProfileDataStore userProfileDataStore) {
+        this.userProfileDataStore = userProfileDataStore;
     }
 
     public List<UserProfile> getUserProfiles() {
-        return fakeUserProfileDataStore.getUserProfiles();
+        return userProfileDataStore.getUserProfiles();
+    }
+
+    public UserProfile getUserByUserProfileId(UUID userProfileId) {
+        return userProfileDataStore.getUserByUserProfileId(userProfileId);
     }
 }

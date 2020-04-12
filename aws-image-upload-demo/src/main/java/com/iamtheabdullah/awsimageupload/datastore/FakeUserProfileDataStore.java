@@ -19,4 +19,11 @@ public class FakeUserProfileDataStore {
     public List<UserProfile> getUserProfiles() {
         return USER_PROFILES;
     }
+
+    public UserProfile getUserByUserProfileId(UUID userProfileId) {
+        return USER_PROFILES.stream()
+                .filter(user -> user.getUserProfileId().equals(userProfileId))
+                .findFirst()
+                .get();
+    }
 }
