@@ -1,4 +1,4 @@
-package com.iamtheabdullah.awsimageuploaddemo.Filestore;
+package com.iamtheabdullah.awsimageuploaddemo.filestore;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
