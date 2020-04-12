@@ -17,15 +17,15 @@ public class UserProfileService {
         this.userProfileRepository = userProfileRepository;
     }
 
-    public List<UserProfile> getUserProfiles() {
+    List<UserProfile> getUserProfiles() {
         return userProfileRepository.getUserProfiles();
     }
 
-    public UserProfile getUserProfile(UUID userProfileId) {
+    UserProfile getUserProfile(UUID userProfileId) {
         return userProfileRepository.getUserById(userProfileId);
     }
 
-    public void uploadUserProfileImage(UUID userProfileId, MultipartFile file) {
-
+    void uploadUserProfileImage(UUID userProfileId, MultipartFile file) {
+            
     }
 }

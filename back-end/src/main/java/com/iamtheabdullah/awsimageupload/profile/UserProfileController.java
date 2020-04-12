@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/user-profile")
+@RequestMapping("")
+//@CrossOrigin("*") -- disabled (commented out) for security reasons
+@CrossOrigin("http://localhost:3000") // change port number to the one that your front-end application is on
 public class UserProfileController {
     private final UserProfileService userProfileService;
 
@@ -18,20 +20,22 @@ public class UserProfileController {
         this.userProfileService = userProfileService;
     }
 
-    @GetMapping
+    @GetMapping(
+            path = "users"
+    )
     public List<UserProfile> getUserProfiles() {
         return userProfileService.getUserProfiles();
     }
 
     @GetMapping(
-            path = "{userProfileId}"
+            path = "user/{userProfileId}"
     )
     public UserProfile getUserProfile(@PathVariable("userProfileId") UUID userProfileId) {
         return userProfileService.getUserProfile(userProfileId);
     }
 
     @PostMapping(
-            path = "{userProfileId}/image/upload",
+            path = "user/{userProfileId}/image/upload",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
