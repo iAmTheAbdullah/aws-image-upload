@@ -24,7 +24,7 @@ public class AmazonConfig {
     }
 
     @Bean
-    public AmazonS3 s3() {
+    public AmazonS3 s3() throws IOException {
         String accessKey = readAmazonKeys(AmazonKeysTypeEnum.ACCESS);
         String secretKey = readAmazonKeys(AmazonKeysTypeEnum.SECRET);
 
@@ -40,7 +40,7 @@ public class AmazonConfig {
     }
 
     @Bean
-    private String readAmazonKeys(AmazonKeysTypeEnum keyType) {
+    private String readAmazonKeys(AmazonKeysTypeEnum keyType) throws IOException {
         final String CSV_FILENAME = "./rootkey.csv";
 
         String readLine = "";
@@ -57,7 +57,7 @@ public class AmazonConfig {
             reader.close();
         }
         catch (IOException ex) {
-            ex.printStackTrace();
+            throw new IOException("File not found", ex);
         }
 
         switch (keyType) {
