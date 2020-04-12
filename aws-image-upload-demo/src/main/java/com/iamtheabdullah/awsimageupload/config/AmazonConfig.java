@@ -3,6 +3,7 @@ package com.iamtheabdullah.awsimageupload.config;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.context.annotation.Bean;
@@ -38,14 +39,13 @@ public class AmazonConfig {
     }
 
     @Bean
-    private String readAmazonKeys(AmazonKeysTypeEnum keyType) throws IOException {
-        final String CSV_FILENAME = "./rootkey.csv";
-
-        String readLine = "";
+    public String readAmazonKeys(AmazonKeysTypeEnum keyType) throws IOException {
+        final String CSV_FILENAME = "./config/rootkey.csv";
         Map<String, String> keys = new HashMap();
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(CSV_FILENAME));
+            String readLine = "";
 
             while ((readLine = reader.readLine()) != null) {
                 String[] keyValueString = readLine.split("=");
